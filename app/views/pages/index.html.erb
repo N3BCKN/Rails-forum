@@ -1,7 +1,47 @@
 <div class="container p-5">
 	<div class="row">
 		<div class="col-md-9">
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet autem laboriosam eligendi! Perspiciatis ut hic eveniet odio expedita harum repudiandae est, a explicabo omnis exercitationem, voluptatum sit quo beatae qui illum mollitia dicta ullam. Ducimus autem aperiam quae possimus maxime neque minus exercitationem temporibus totam commodi porro omnis repudiandae cum voluptas iusto quidem blanditiis suscipit sapiente rem quisquam dicta sunt, consequatur labore fugiat ratione. Facere voluptas quis, sed natus odio eius repellendus nulla incidunt quasi ut labore impedit saepe sequi accusamus atque officia, voluptatibus laboriosam adipisci molestias mollitia voluptate expedita soluta pariatur? Dicta qui sit ea iste id dolor numquam natus commodi quam tenetur dolorem quibusdam fugit delectus veniam, repellat earum reiciendis, esse odit tempore deserunt voluptatem. Esse quisquam unde quaerat aspernatur asperiores! Quisquam at iure obcaecati, explicabo, optio dolore praesentium, quae, recusandae voluptas labore doloremque in voluptates ullam beatae quos sapiente mollitia! Quisquam doloribus minus aperiam minima, qui natus fugiat, inventore, obcaecati quasi nulla corrupti magni sequi beatae! Quod earum odit accusantium inventore veniam minima aliquid molestiae atque at, harum velit similique beatae distinctio, praesentium reiciendis neque, et tempore ea totam rem quam nemo dolorum? Nisi veritatis error quo non perspiciatis ut vero numquam amet, porro esse, commodi a.
+			<% @categories.each do |category| %>
+			<div class="categories mb-5">
+				<div class="category-bar mb-1">
+					<div class="container">
+						<div class="float-left p-2"><i class="fa fa-book fa-lg"></i> &nbsp;<%= category.name %></div>
+					</div>
+				</div>
+				<div class="topics">
+					<table class="table">
+					    <thead>
+					      <tr>
+					      	<th></th>
+					        <th>Topics</th>
+					        <th>Posts</th>
+					        <th>Latest Post</th>
+					      </tr>
+					    </thead>
+					    <tbody>
+					      <tr>
+					        <td><i class="fa fa-file fa-2x"></i> &nbsp;Thread One</td>
+					        <td>12</td>
+					        <td>50</td>
+					        <td>Post 1</td>
+					      </tr>
+					      <tr>
+					        <td><i class="fa fa-file fa-2x"></i> &nbsp;Thread Two</td>
+					        <td>3</td>
+					        <td>123</td>
+					        <td>Post 2</td>
+					      </tr>
+					      <tr>
+					        <td><i class="fa fa-file fa-2x"></i> &nbsp;Thread Three</td>
+					        <td>91</td>
+					        <td>541</td>
+					        <td>Post 3</td>
+					      </tr>
+					    </tbody>
+					  </table>
+				</div>
+			</div>
+			<% end %>
 		</div>
 		<div class="col-md-3">
 			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae excepturi obcaecati maxime, necessitatibus, id quaerat modi totam tempora consequuntur est quia dolore ab expedita eius distinctio! Odit asperiores vel sint consectetur minus eum rerum qui unde, quisquam enim debitis accusantium commodi excepturi soluta, aut, beatae. Enim earum ab dolorum modi, animi eveniet impedit. Animi non error reiciendis esse. In tenetur libero, nulla quo totam nemo alias, vero expedita voluptates sint saepe quae officia modi qui voluptatibus minus, cupiditate odio minima. Blanditiis quaerat iure quis inventore hic minus aliquid ab quasi. Itaque veniam quis molestiae harum dolorem quidem deleniti, ex alias aliquam minus. Excepturi, molestias amet libero non maiores, est aspernatur unde tempora impedit aliquam ullam assumenda vitae reiciendis totam natus accusantium asperiores modi temporibus expedita quaerat dolore quidem veritatis odit. Tempore culpa debitis modi, maxime quidem laboriosam esse magnam tempora vitae aspernatur, facilis quia, ut dolorem sit pariatur doloremque dignissimos eum veritatis, dolore iure recusandae amet enim! Consectetur corporis, quidem sapiente in eos optio tempora ipsa quaerat rem deserunt sit sunt sint cumque officia illum aperiam eveniet quisquam accusantium natus inventore cupiditate, assumenda quos reiciendis eaque facilis. Corrupti magni, architecto aut ea alias totam reprehenderit autem, vitae, maiores, velit laborum!
