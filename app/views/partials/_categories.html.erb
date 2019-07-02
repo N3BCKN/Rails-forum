@@ -22,7 +22,11 @@
 					<tbody>
 					<% category.subjects.each do |subject| %>
 					<tr>
-						<td><i class="fa fa-file fa-2x"></i> &nbsp;<%= subject.name %></td>
+						<td>
+							<%= link_to root_path, class: "text-dark" do%>
+								<i class="fa fa-file fa-2x"></i> &nbsp;<%= subject.name %>
+							<% end %> 
+						</td>
 						<td><%= rand(100) %></td>
 						<td><%= rand(500) %></td>
 						<td>Post 1</td>
