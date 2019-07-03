@@ -1,0 +1,26 @@
+<div class="topics">
+			<table class="table table-hover">
+					<thead>
+					<tr>
+						<th></th>
+						<th>Posts</th>
+						<th>Views</th>
+						<th>Latest Posts</th>
+					</tr>
+					</thead>
+					<tbody>
+					<% discussions.each do |discussion| %>
+					<tr>
+						<td>
+							<%= link_to discussion_path(discussion), class: "text-dark" do%>
+								<i class="fa fa-file fa-2x"></i> &nbsp;<%= discussion.name %>
+							<% end %> 
+						</td>
+						<td><%= discussion.posts.count %></td>
+						<td><%= rand(500) %></td>
+						<td>Post 1</td>
+					</tr>
+					<% end %>
+					</tbody>
+			</table>
+</div>

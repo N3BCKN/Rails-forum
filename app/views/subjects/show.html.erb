@@ -3,6 +3,7 @@
 		<div class="col-md-9">
 			<% if @subject.discussions.count > 0 %>
 				<h4 class="text-muted">Latest Discussions</h4>
+				<%= render 'partials/discussions', discussions: @subject.discussions  %>
 			<% else %>
 				<h4 class="text-muted">No discussions yet</h4>
 			<% end %>
