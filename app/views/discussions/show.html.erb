@@ -7,7 +7,7 @@
 			<div class="card" style="max-width: 100%;">
 			  <div class="row no-gutters">
 			    <div class="col-sm-2">
-			      <img src="https://dummyimage.com/100x100/000/fff" class="img-fluid rounded-circle mt-3 ml-3" alt="...">
+			      <%= user_avatar(@discussion.user) %>
 			      <p class="ml-4"><%= @discussion.user.user_name %>
 			    	<br>
 					<small>On forum since: <%= @discussion.user.created_at.strftime('%F') %></small>
