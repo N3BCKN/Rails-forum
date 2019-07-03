@@ -1,5 +1,21 @@
 <div class="container">
 	<div class=" m-5">
+		<ol class="breadcrumb">
+			  	<li class="breadcrumb-item">
+				    <%= link_to root_path do %>
+				    	<i class="fa fa-home"></i>
+				    <% end %>
+				</li>
+			    <li class="breadcrumb-item">
+			    	<%= link_to @discussion.subject.category.name, category_path(@discussion.subject.category) %>
+			    </li>
+			    <li class="breadcrumb-item">
+			    	<%= link_to @discussion.subject.name, subject_path(@discussion.subject) %>
+			    </li>
+			    <li class="breadcrumb-item active">
+			    	<%= @discussion.name %>
+			    </li>
+			  </ol>
 		<div class="p-3">
 			<h2 class="text-muted"><%= @discussion.name %></h2>
 			<p>By: <b><%= @discussion.user.user_name %></b>  Posted: <%= @discussion.created_at.to_formatted_s(:db) %></p>
@@ -7,7 +23,7 @@
 			<div class="card" style="max-width: 100%;">
 			  <div class="row no-gutters">
 			    <div class="col-sm-2">
-			      <%= user_avatar(@discussion.user) %>
+			      <%= user_avatar(@discussion.user,120,120) %>
 			      <p class="ml-4"><%= link_to @discussion.user.user_name, profile_path(@discussion.user), :class=>"text-dark" %>
 			    	<br>
 					<small>On forum since: <%= @discussion.user.created_at.strftime('%F') %></small>
