@@ -23,7 +23,7 @@
 					<% category.subjects.each do |subject| %>
 					<tr>
 						<td>
-							<%= link_to root_path, class: "text-dark" do%>
+							<%= link_to subject_path(subject), class: "text-dark" do%>
 								<i class="fa fa-file fa-2x"></i> &nbsp;<%= subject.name %>
 							<% end %> 
 						</td>

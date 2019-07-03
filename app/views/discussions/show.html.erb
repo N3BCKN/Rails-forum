@@ -1,0 +1,27 @@
+<div class="container">
+	<div class=" m-5">
+		<div class="p-3">
+			<h2 class="text-muted"><%= @discussion.name %></h2>
+			<p>By: User  Posted: <%= @discussion.created_at.to_formatted_s(:db) %></p>
+		</div>
+			<div class="card" style="max-width: 100%;">
+			  <div class="row no-gutters">
+			    <div class="col-sm-2">
+			      <img src="https://dummyimage.com/110x110/000/fff" class="img-fluid rounded-circle mt-3 ml-3" alt="...">
+			      <p class="ml-4">User Login</p>
+			    </div>
+			    <div class="col-sm-10">
+			      <div class="card-body">
+			        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+			        <p class="card-text container">
+			        		<%= @discussion.content %>
+			        </p>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+	
+			<h4 class="text-muted mt-5" style="border-top: 1px solid lightgrey;">Leave a Reply</h4>
+			
+	</div>
+</div>

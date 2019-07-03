@@ -1,0 +1,10 @@
+<div class="container m-5">
+	<h2 class="text-center">Add new Discussion</h2>
+	<h1><%= params.inspect %></h1>
+	<%= simple_form_for(@discussion) do |f| %>
+		<%= f.input :name %>
+  		<%= f.input :content, :input_html => { 'rows' => 5, 'cols' => 10 } %>
+  		<%= f.hidden_field :subject, :value=> params[:subject] %>
+		<%= f.button :submit, class: "btn btn-md btn-warning" %>
+	<% end %>
+</div>
