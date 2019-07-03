@@ -1,9 +1,10 @@
 <div class="container p-5">
 	<div class="row">
 		<div class="col-md-9">
-			<% if @subject.discussions.count > 0 %>
+			<% if @discussions.count > 0 %>
 				<h4 class="text-muted">Latest Discussions</h4>
-				<%= render 'partials/discussions', discussions: @subject.discussions  %>
+				<%= render 'partials/discussions', discussions: @discussions  %>
+				<%= paginate @discussions %> 
 			<% else %>
 				<h4 class="text-muted">No discussions yet</h4>
 			<% end %>

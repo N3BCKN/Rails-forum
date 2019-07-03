@@ -2,7 +2,7 @@ class DiscussionsController < ApplicationController
   
   def show
   	@discussion = Discussion.find(params[:id])
-    @posts = @discussion.posts
+    @posts = @discussion.posts.page params[:page]
     @post = Post.new
   end
   def new

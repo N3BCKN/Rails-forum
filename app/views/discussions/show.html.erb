@@ -23,6 +23,8 @@
 			<% @posts.each_with_index do |post, index| %>
 				<%= render 'partials/posts', post: post, index: index %>
 			<% end %>
+
+			<%= paginate @posts %>
 	
 			<h4 class="text-muted mt-5" style="border-top: 1px solid lightgrey;">Leave a Reply</h4>
 			<%= simple_form_for @post do |f| %>
