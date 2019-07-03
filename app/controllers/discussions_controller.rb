@@ -3,7 +3,7 @@ class DiscussionsController < ApplicationController
   def show
   	@discussion = Discussion.find(params[:id])
     @posts = @discussion.posts.page params[:page]
-    @post = current_user.posts.build
+    @post = current_user.posts.build if current_user
   end
   def new
   	@discussion = current_user.discussions.build

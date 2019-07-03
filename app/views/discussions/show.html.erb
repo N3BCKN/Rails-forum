@@ -18,7 +18,7 @@
 			  </ol>
 		<div class="p-3">
 			<h2 class="text-muted"><%= @discussion.name %></h2>
-			<p>By: <b><%= @discussion.user.user_name %></b>  Posted: <%= @discussion.created_at.to_formatted_s(:db) %></p>
+			<p>By: <b><%= link_to @discussion.user.user_name, profile_path(@discussion.user) %></b>  Posted: <%= @discussion.created_at.to_formatted_s(:db) %></p>
 		</div>
 			<div class="card" style="max-width: 100%;">
 			  <div class="row no-gutters">

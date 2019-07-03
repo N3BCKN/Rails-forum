@@ -1,3 +1,5 @@
+
+<% if user_signed_in? %>
 <div class="card" style="width: 18rem;">
 				<div class="text-center">
 					<h5>Hello <%= current_user.user_name %>!</h5>
@@ -16,11 +18,39 @@
 			    	My Messages
 				</button>
 			    <% end %>
-			    <%= link_to destroy_user_session_path do %>
+			    <%= link_to destroy_user_session_path, :method => :delete do %>
 			    <button class="btn btn-danger btn-block mb-3">
 			    	<i class="fa fa-sign-out"></i>
 			    	Log out
 				</button>
 			    <% end %>
-			  </div>
+	</div>
 </div>
+
+<% else %>
+
+<div class="card" style="width: 18rem;">	
+	<div class="card-body">
+			  <h5 class="text-center">Login</h5>
+			  <%= form_for(:user, :url => session_path(:user)) do |f| %>
+			  <div class="form-group">
+				 <%= f.text_field :email, :class=>"form-control", :placeholder=>"email" %>
+              </div>
+               <div class="form-group">
+            	<%= f.password_field :password, :class=>"form-control", :placeholder=>"password"  %>
+               </div>
+               <div class="form-group">
+               	<%= f.check_box :remember_me %>
+  				<%= f.label :remember_me %>
+               </div>
+                <div class="form-group">
+                <%= f.submit "Log In", :class=>"btn btn-warning btn-block float-right" %>
+                <br><br>
+                 <%= link_to "Forgot your password?", new_password_path(:user) %>
+                </div>
+			  <% end %>
+			  <%= link_to "Register", new_user_registration_path %>
+	</div>
+</div>
+
+<% end %>

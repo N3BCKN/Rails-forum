@@ -14,9 +14,9 @@
 					<thead>
 					<tr>
 						<th></th>
-						<th>Topics</th>
+						<th>Subject</th>
 						<th>Posts</th>
-						<th>Latest Post</th>
+						<th>Latest Subject</th>
 					</tr>
 					</thead>
 					<tbody>
@@ -27,9 +27,9 @@
 								<i class="fa fa-file fa-2x"></i> &nbsp;<%= subject.name %>
 							<% end %> 
 						</td>
-						<td><%= rand(100) %></td>
-						<td><%= rand(500) %></td>
-						<td>Post 1</td>
+						<td><%= subject.discussions.count %></td>
+						<td><%= all_posts(subject.discussions) %></td>
+						<td> Post 1 </td>
 					</tr>
 					<% end %>
 					</tbody>
