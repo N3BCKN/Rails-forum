@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   def create
   	@discussion = Discussion.find(params[:id])
-  	@post = Post.new(post_params)
+  	@post = current_user.posts.build(post_params)
   	@post.discussion = @discussion
   		respond_to do |format|
   		if @post.save

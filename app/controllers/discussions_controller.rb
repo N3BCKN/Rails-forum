@@ -3,15 +3,15 @@ class DiscussionsController < ApplicationController
   def show
   	@discussion = Discussion.find(params[:id])
     @posts = @discussion.posts.page params[:page]
-    @post = Post.new
+    @post = current_user.posts.build
   end
   def new
-  	@discussion = Discussion.new
+  	@discussion = current_user.discussions.build
   end
 
   def create
   	@subject = Subject.find(params[:discussion][:subject])
-  	@discussion = Discussion.new(discussion_params)
+  	@discussion = current_user.discussions.build(discussion_params)
   	@discussion.subject = @subject
   	respond_to do |format| 
   		if @discussion.save

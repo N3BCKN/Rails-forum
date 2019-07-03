@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_03_042536) do
+ActiveRecord::Schema.define(version: 2019_07_03_142647) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -24,7 +24,9 @@ ActiveRecord::Schema.define(version: 2019_07_03_042536) do
     t.datetime "updated_at", null: false
     t.integer "subject_id"
     t.text "content"
+    t.integer "user_id"
     t.index ["subject_id"], name: "index_discussions_on_subject_id"
+    t.index ["user_id"], name: "index_discussions_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -32,7 +34,9 @@ ActiveRecord::Schema.define(version: 2019_07_03_042536) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "discussion_id"
+    t.integer "user_id"
     t.index ["discussion_id"], name: "index_posts_on_discussion_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "subjects", force: :cascade do |t|
