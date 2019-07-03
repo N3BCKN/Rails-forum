@@ -41,8 +41,9 @@
 			    </div>
 			  </div>
 			</div>
+			<% pages = params[:page].present? ? ((params[:page].to_i-1) * 15) : 0 %> 
 			<% @posts.each_with_index do |post, index| %>
-				<%= render 'partials/posts', post: post, index: index %>
+				<%= render 'partials/posts', post: post, index: index + pages.to_i %>
 			<% end %>
 
 			<%= paginate @posts %>
