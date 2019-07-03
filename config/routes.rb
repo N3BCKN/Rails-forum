@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get "/categories/:id" => "categories#show", :as => "category"
   get "/subject/:id" => "subjects#show", :as => "subject"
   get "/discussion/:id" => "discussions#show", :as => "discussion"
+  get "/faq", to: "pages#faq"
   resources :profiles
   resources :pages
   resources :discussions do
