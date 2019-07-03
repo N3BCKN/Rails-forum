@@ -12,16 +12,22 @@
 			    </div>
 			    <div class="col-sm-10">
 			      <div class="card-body">
-			        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+			        <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
 			        <p class="card-text container">
-			        		<%= @discussion.content %>
+			        		<%= simple_format(@discussion.content) %>
 			        </p>
 			      </div>
 			    </div>
 			  </div>
 			</div>
+			<% @posts.each_with_index do |post, index| %>
+				<%= render 'partials/posts', post: post, index: index %>
+			<% end %>
 	
 			<h4 class="text-muted mt-5" style="border-top: 1px solid lightgrey;">Leave a Reply</h4>
-			
+			<%= simple_form_for @post do |f| %>
+				<%= f.input :content, as: :text, :input_html => { 'rows' => 10, 'cols' => 10 }, :label=> "Your Post" %>
+				<%= f.button :submit, "Add Reply"  ,:class=>"btn btn-md btn-warning" %>
+			<% end %>
 	</div>
 </div>
