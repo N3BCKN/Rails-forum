@@ -25,11 +25,19 @@
 			<% end %>
 
 			<%= paginate @posts %>
-	
-			<h4 class="text-muted mt-5" style="border-top: 1px solid lightgrey;">Leave a Reply</h4>
-			<%= simple_form_for @post do |f| %>
-				<%= f.input :content, as: :text, :input_html => { 'rows' => 10, 'cols' => 10 }, :label=> "Your Post" %>
-				<%= f.button :submit, "Add Reply"  ,:class=>"btn btn-md btn-warning" %>
+			<% if user_signed_in? %>
+				<h4 class="text-muted mt-5" style="border-top: 1px solid lightgrey;">Leave a Reply</h4>
+				<%= simple_form_for @post do |f| %>
+					<%= f.input :content, as: :text, :input_html => { 'rows' => 10, 'cols' => 10 }, :label=> "Your Post" %>
+					<%= f.button :submit, "Add Reply"  ,:class=>"btn btn-md btn-warning" %>
+				<% end %>
+			<% else %>
+				<div class="jumbotron jumbotron-fluid">
+				  <div class="container">
+				    <p>You are not logged in</p>
+				    <p><%= link_to "Log in", new_user_session_path%> or <%= link_to "Register", new_user_registration_path%> in order to add new discussions</p>
+				  </div>
+				</div>
 			<% end %>
 	</div>
 </div>

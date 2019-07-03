@@ -8,8 +8,17 @@
 			<% else %>
 				<h4 class="text-muted">No discussions yet</h4>
 			<% end %>
+			<% if user_signed_in? %>
 			<%= link_to "Add new discussion", {:controller => "discussions", :action => "new", :subject => @subject}, 
 			class: "btn btn-md btn-info btn-block mb-3" %>
+			<% else %>
+			<div class="jumbotron jumbotron-fluid">
+			  <div class="container">
+			    <p>You are not logged in</p>
+			    <p><%= link_to "Log in", new_user_session_path%> or <%= link_to "Register", new_user_registration_path%> in order to add new discussions</p>
+			  </div>
+			</div>
+			<% end %>
 			<%= link_to "Back to main page", root_path, class: "btn btn-sm btn-warning" %>		
 		</div>
 		<div class="col-md-3">
