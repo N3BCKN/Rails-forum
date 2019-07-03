@@ -2,7 +2,8 @@
 			<div class="row no-gutters">
 			   <div class="col-sm-2">
 			    <%= user_avatar(post.user) %>
-			    <p class="ml-4"><%= post.user.user_name %>
+			    <p class="ml-4">
+			    	 <p class="ml-4"><%= link_to post.user.user_name, profile_path(post.user), :class=>"text-dark" %>
 			    	<br>
 					<small>On forum since: <%= post.user.created_at.strftime('%F') %></small>
 					<br>

@@ -5,29 +5,23 @@
 					<div class="row">
 						<div class="col-xs-12 col-sm-3 center">
 							<span class="profile-picture">
-								<%= user_avatar(@user) %>
+								<%= user_avatar(@profile) %>
 							</span>
 
 							<div class="space space-4"></div>
 
-							<!-- <a href="#" class="btn btn-sm btn-block btn-success">
-								<i class="ace-icon fa fa-plus-circle bigger-120"></i>
-								<span class="bigger-110">Add as a friend</span>
-							</a> -->
-
-							<a href="#" class="btn btn-sm btn-block btn-primary">
+							<a href="#" class="btn btn-sm btn-block btn-primary" style="background: #03a9f4; width: 96%;">
 								<i class="ace-icon fa fa-envelope-o bigger-110"></i>
 								<span class="bigger-110">Send a message</span>
 							</a>
-						</div><!-- /.col -->
-
+						</div>
 						<div class="col-xs-12 col-sm-9">
 							<h4 class="blue">
-								<span class="middle"><%= @user.user_name %></span>
+								<span class="middle"><%= @profile.user_name %></span>
 
 								<span class="label label-purple arrowed-in-right">
-									<% if current_user == @user %>
-										<%= link_to "Edit my profile", root_path, :class=>"btn btn-md btn-warning" %>
+									<% if current_user == @profile %>
+										<%= link_to "Edit my profile", edit_profile_path(@profile), :class=>"btn btn-md btn-warning" %>
 									<% end %>
 								</span>
 							</h4>
@@ -37,7 +31,7 @@
 									<div class="profile-info-name"> Username </div>
 
 									<div class="profile-info-value">
-										<span><%= @user.user_name %></span>
+										<span><%= @profile.user_name %></span>
 									</div>
 								</div>
 
@@ -46,7 +40,7 @@
 
 									<div class="profile-info-value">
 										<i class="fa fa-map-marker light-orange bigger-110"></i>
-										<%= @user.location %>
+										<%= @profile.location %>
 									</div>
 								</div>
 
@@ -54,7 +48,7 @@
 									<div class="profile-info-name"> Joined </div>
 
 									<div class="profile-info-value">
-										<span><%= @user.created_at.strftime('%F') %></span>
+										<span><%= @profile.created_at.strftime('%F') %></span>
 									</div>
 								</div>
 
@@ -62,7 +56,7 @@
 									<div class="profile-info-name"> Posts </div>
 
 									<div class="profile-info-value">
-										<span><%= @user.posts.count %></span>
+										<span><%= @profile.posts.count %></span>
 									</div>
 								</div>
 
@@ -70,7 +64,7 @@
 									<div class="profile-info-name"> Age </div>
 
 									<div class="profile-info-value">
-										<span><%= @user.age  %></span>
+										<span><%= @profile.age  %></span>
 									</div>
 								</div>
 
@@ -78,7 +72,7 @@
 									<div class="profile-info-name"> Last Online </div>
 
 									<div class="profile-info-value">
-										<span><%= @user.last_sign_in_at %></span>
+										<span><%= @profile.last_sign_in_at %></span>
 									</div>
 								</div>
 							</div>
@@ -90,7 +84,9 @@
 									<div class="profile-info-name"> Website </div>
 
 									<div class="profile-info-value">
-										<a href="#" target="_blank"><%= @user.website %></a>
+										<% if @profile.website %>
+											<%= link_to "My website",  @profile.website %>
+										<% end %>
 									</div>
 								</div>
 
@@ -100,7 +96,9 @@
 									</div>
 
 									<div class="profile-info-value">
-										<a href="#">Find me on Facebook</a>
+										<% if @profile.facebook.present? %>
+											<%= link_to "Find me on facebook",  @profile.facebook %>
+										<% end %>
 									</div>
 								</div>
 
@@ -110,7 +108,20 @@
 									</div>
 
 									<div class="profile-info-value">
-										<a href="#">Follow me on Twitter</a>
+										<% if @profile.twitter.present? %>
+											<%= link_to "Follow me on Twitter",  @profile.twitter %>
+										<% end %>
+									</div>
+								</div>
+								<div class="profile-info-row">
+									<div class="profile-info-name">
+										<i class="middle ace-icon fa fa-instagram bigger-150 light-blue"></i>
+									</div>
+
+									<div class="profile-info-value">
+										<% if @profile.instagram.present? %>
+											<%= link_to "Check my instagram",  @profile.instagram %>
+										<% end %>
 									</div>
 								</div>
 							</div>
@@ -124,16 +135,16 @@
 							<div class="widget-box transparent">
 								<div class="widget-header widget-header-small">
 									<h4 class="widget-title smaller">
-										About <%= @user.user_name %>:
+										About <%= @profile.user_name %>:
 									</h4>
 								</div>
 
 								<div class="widget-body">
 									<div class="widget-main">
-										<% if @user.description %>
-										<%= @user.description %>
+										<% if @profile.description %>
+										<%= @profile.description %>
 										<% else %>
-										<p>No description yet</p>
+										<p class="text-muted">No description yet</p>
 										<% end %>
 									</div>
 								</div>
