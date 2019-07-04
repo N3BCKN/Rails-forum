@@ -1,0 +1,27 @@
+<div class="container">
+  <h3 class="pb-5">Conversation with 
+    <%= link_to @conversation.with(current_user).user_name, profile_path(@conversation.with(current_user)) %>:
+  </h3>
+
+<div id="conversation-main">
+  <div id="conversation-body">
+    <%= render @conversation.personal_messages %>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <%= form_for @personal_message do |f| %>
+    <%= hidden_field_tag 'conversation_id', @conversation.id %>
+    <div class="form-group">
+      <%= f.text_area :body, :class=>"form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.submit "Send Message", :class=>"form-control btn btn-warning btn-sm" %>
+    </div>
+  <% end %>
+    </div>
+    <div class="col-md-6">
+      
+    </div>
+  </div>
+</div>`
+</div>

@@ -1,0 +1,11 @@
+<div>
+  Chatting with <%= link_to  profile_path(conversation.with(current_user)) do %>
+  <%= conversation.with(current_user).user_name %>
+  <%= user_avatar_tiny(conversation.with(current_user)) %>
+  <% end %>
+  <br>
+  <em><%= conversation.personal_messages.last.body.truncate(50) %></em>
+  <br>
+  <%= link_to 'View conversation', conversation_path(conversation) %>
+  <hr>
+</div>

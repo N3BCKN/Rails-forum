@@ -1,7 +1,7 @@
 
 <% if user_signed_in? %>
 <div class="card" style="width: 18rem;">
-				<div class="text-center">
+				<div class="text-center pt-2">
 					<h5>Hello <%= current_user.user_name %>!</h5>
 			  		<%= user_avatar(current_user,150,150) %>
 			  	</div>
@@ -12,7 +12,7 @@
 			    	My profile
 				</button>
 			    <% end %>
-			    <%= link_to profile_path(current_user)  do %>
+			    <%= link_to conversations_path do %>
 			    <button class="btn btn-warning btn-block mb-3">
 			    	<i class="fa fa-envelope"></i>
 			    	My Messages
