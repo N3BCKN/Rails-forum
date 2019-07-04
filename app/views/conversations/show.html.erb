@@ -9,15 +9,22 @@
   </div>
   <div class="row">
     <div class="col-md-6">
-      <%= form_for @personal_message do |f| %>
-    <%= hidden_field_tag 'conversation_id', @conversation.id %>
-    <div class="form-group">
-      <%= f.text_area :body, :class=>"form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.submit "Send Message", :class=>"form-control btn btn-warning btn-sm" %>
-    </div>
-  <% end %>
+    <% if current_user.role != "Banned"%>
+        <%= form_for @personal_message do |f| %>
+          <%= hidden_field_tag 'conversation_id', @conversation.id %>
+          <div class="form-group">
+            <%= f.text_area :body, :class=>"form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.submit "Send Message", :class=>"form-control btn btn-warning btn-sm" %>
+          </div>
+      <% end %>
+    <% else %>
+    <div class="container">
+          <p><strong>You have been banned!</strong></p>
+          <p class="text-muted">You cannot send new messages.</p>
+       </div>
+    <% end %>
     </div>
     <div class="col-md-6">
       

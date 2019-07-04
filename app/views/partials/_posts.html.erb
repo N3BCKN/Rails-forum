@@ -17,6 +17,7 @@
 			        <p class="card-text">#<%=index+1 %>&nbsp;<small class="text-muted"><%= post.created_at.to_formatted_s(:db) %></small></p>
 			        <p class="card-text container">
 			        <%= simple_format(post.content) %>
+			        <%= link_to "Edit Post", root_path, :class=>"btn btn-warning btn-md" %>
 			    </p>
 			</div>
 		</div>
