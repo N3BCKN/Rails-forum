@@ -37,6 +37,7 @@ gem 'devise'
 gem 'kaminari'
 gem 'simple_form'
 gem 'jquery-rails'
+gem 'gemoji'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false

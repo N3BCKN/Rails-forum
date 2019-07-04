@@ -13,9 +13,9 @@ class PersonalMessagesController < ApplicationController
     @personal_message = current_user.personal_messages.build(personal_message_params)
     @personal_message.conversation_id = @conversation.id
     @personal_message.save!
-
-    flash[:success] = "Your message was sent!"
-    redirect_to conversation_path(@conversation)
+    
+       flash[:success] = "Your message was sent!"
+       redirect_to conversation_path(@conversation)
   end
 
   private

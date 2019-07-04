@@ -1,9 +1,9 @@
 <p><%= personal_message.body %></p>
-<p>
+<small class="text-muted"> 
    by <%= link_to profile_path(personal_message.user) do %>
 	<%= personal_message.user.user_name %>
 	<%= user_avatar_tiny(personal_message.user) %>
 	<% end %>
-	at <small class="text-muted"><%= personal_message.created_at %></small>
-</p>
+	at <%= personal_message.created_at.strftime("%F  %T") %>
+</small>
 <hr>
