@@ -26,9 +26,9 @@
 			      <%= user_avatar(@discussion.user,120,120) %>
 			      <p class="ml-4"><%= link_to @discussion.user.user_name, profile_path(@discussion.user), :class=>"text-dark" %>
 			    	<br>
+			    	<small><%= @discussion.user.role %></small><br>
+			    	<small>Posts: <%= @discussion.user.posts.count %></small><br>
 					<small>On forum since: <%= @discussion.user.created_at.strftime('%F') %></small>
-					<br>
-			    	<small>Posts: <%= @discussion.user.posts.count %></small>
 			    </p>
 			    </div>
 			    <div class="col-sm-10">

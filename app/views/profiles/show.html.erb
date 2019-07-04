@@ -25,6 +25,9 @@
 								<span class="label label-purple arrowed-in-right">
 									<% if current_user == @profile %>
 										<%= link_to "Edit my profile", edit_profile_path(@profile), :class=>"btn btn-md btn-warning" %>
+									<% elsif current_user.role == "Admin" %>
+										<%= link_to check_if_banned(@profile.role), bans_update_profile_path(profile_id: @profile.id), :id=>"ban_user",
+										:method => :put,:remote => true, :class=>"btn btn-md btn-danger" %>
 									<% end %>
 								</span>
 							</h4>

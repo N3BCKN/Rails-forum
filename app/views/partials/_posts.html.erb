@@ -5,10 +5,11 @@
 			    <p class="ml-4">
 			    	 <p class="ml-4"><%= link_to post.user.user_name, profile_path(post.user), :class=>"text-dark" %>
 			    	<br>
-					<small>On forum since: <%= post.user.created_at.strftime('%F') %></small>
-					<br>
-			    	<small>Posts: <%= post.user.posts.count %></small>
+			    	<small><%= post.user.role %></small><br>
+			    	<small>Posts: <%= post.user.posts.count %></small><br>
+					<small>On forum since: <%= post.user.created_at.strftime('%F') %></small>	
 			    </p>
+				</p>
 
 			    </div>
 			    <div class="col-sm-10">

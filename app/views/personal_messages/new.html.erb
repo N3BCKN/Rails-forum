@@ -1,10 +1,18 @@
-<h1>New message to <%= @receiver.user_name %></h1>
-
-<%= form_for @personal_message do |f| %>
-  <%= hidden_field_tag 'receiver_id', @receiver.id %>
-
-  <%= f.label :body %>
-  <%= f.text_area :body %>
-
-  <%= f.submit %>
-<% end %>
+<div class="container">
+	<h3>New message to <%=link_to @receiver.user_name, profile_path(@receiver) %></h3>
+	<div class="row">
+		<div class="col-md-6">		
+ 			<%= form_for @personal_message do |f| %>
+    		<%= hidden_field_tag 'receiver_id', @receiver.id %>
+    		<div class="form-group">
+      	<%= f.text_area :body, :class=>"form-control" %>
+    	</div>
+    	<div class="form-group">
+      <%= f.submit "Send Message", :class=>"form-control btn btn-warning btn-sm" %>
+    		</div>
+  		<% end %>
+		</div>
+		<div class="col-md-6">	
+		</div>
+	</div>
+</div>

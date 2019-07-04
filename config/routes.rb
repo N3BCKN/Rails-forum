@@ -10,11 +10,16 @@ Rails.application.routes.draw do
   get "/discussion/:id" => "discussions#show", :as => "discussion"
   get "/faq", to: "pages#faq"
 
-  resources :profiles
   resources :pages
   resources :users, only: [:edit, :update]
   resources :personal_messages, only: [:create, :new]
   resources :conversations, only: [:index, :show]
+
+   resources :profiles do
+    member do
+      put 'bans/update'
+    end
+  end
 
   resources :discussions do
   	member do
