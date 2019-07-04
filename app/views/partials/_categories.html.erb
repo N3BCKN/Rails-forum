@@ -29,7 +29,13 @@
 						</td>
 						<td><%= subject.discussions.count %></td>
 						<td><%= all_posts(subject.discussions) %></td>
-						<td> Post 1 </td>
+						<% if subject.discussions.last.present? %>
+						<td> <%= link_to subject.discussions.last.name, discussion_path(subject.discussions.last),
+						:class=>"text-dark" %><br>
+						by: <%= link_to subject.discussions.last.user.user_name, profile_path(subject.discussions.last.user) %> </td>
+						<% else %>
+						<td> - </td>
+						<% end %>
 					</tr>
 					<% end %>
 					</tbody>

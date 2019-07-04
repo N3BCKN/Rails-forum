@@ -18,7 +18,12 @@
 						</td>
 						<td><%= discussion.posts.count %></td>
 						<td><%= rand(500) %></td>
-						<td>Post 1</td>
+						<% if discussion.posts.last.present? %>
+							<td>by: <%= link_to discussion.posts.last.user.user_name, profile_path(discussion.posts.last.user) %> 
+							<br> at: <%= discussion.posts.last.created_at.strftime('%F - %T') %> </td>
+						<% else %>
+							<td> - </td>
+						<% end %>
 					</tr>
 					<% end %>
 					</tbody>
