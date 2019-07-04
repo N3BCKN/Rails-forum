@@ -56,13 +56,13 @@
 			<% elsif user_signed_in? && current_user.role == "Banned" %>
 			<div class="container">
 			    <p><strong>You have been banned!</strong></p>
-			    <p class="text-muted">You cannot and new posts.</p>
-			  	</div>
+			    <p class="text-muted">You cannot add new posts.</p>
+			 </div>
 			<% else %>
 				<div class="jumbotron jumbotron-fluid">
 				  <div class="container">
 				    <p>You are not logged in</p>
-				    <p><%= link_to "Log in", new_user_session_path%> or <%= link_to "Register", new_user_registration_path%> in order to add new discussions</p>
+				    <p><%= link_to "Log in", new_user_session_path%> or <%= link_to "Register", new_user_registration_path%> in order to add new posts</p>
 				  </div>
 				</div>
 			<% end %>

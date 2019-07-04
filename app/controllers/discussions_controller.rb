@@ -1,5 +1,6 @@
 class DiscussionsController < ApplicationController
-  
+  before_action :authenticate_user!, only: [:new, :create]
+
   def show
   	@discussion = Discussion.find(params[:id])
     @posts = @discussion.posts.page params[:page]
