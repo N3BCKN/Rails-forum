@@ -23,9 +23,14 @@
 			<% else %>
 				<h4 class="text-muted">No discussions yet</h4>
 			<% end %>
-			<% if user_signed_in? %>
+			<% if user_signed_in? && current_user.role != "Banned" %>
 			<%= link_to "Add new discussion", {:controller => "discussions", :action => "new", :subject => @subject}, 
 			class: "btn btn-md btn-info btn-block mb-3" %>
+			<% elsif user_signed_in? && current_user.role == "Banned" %>
+				<div class="container">
+			    <p><strong>You have been banned!</strong></p>
+			    <p class="text-muted">You cannot and new discussions.</p>
+			  	</div>
 			<% else %>
 			<div class="jumbotron jumbotron-fluid">
 			  <div class="container">

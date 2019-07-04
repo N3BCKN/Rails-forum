@@ -47,12 +47,17 @@
 			<% end %>
 
 			<%= paginate @posts %>
-			<% if user_signed_in? %>
+			<% if user_signed_in? && current_user.role != "Banned" %>
 				<h4 class="text-muted mt-5" style="border-top: 1px solid lightgrey;">Leave a Reply</h4>
 				<%= simple_form_for @post do |f| %>
 					<%= f.input :content, as: :text, :input_html => { 'rows' => 10, 'cols' => 10 }, :label=> "Your Post" %>
 					<%= f.button :submit, "Add Reply"  ,:class=>"btn btn-md btn-warning" %>
 				<% end %>
+			<% elsif user_signed_in? && current_user.role == "Banned" %>
+			<div class="container">
+			    <p><strong>You have been banned!</strong></p>
+			    <p class="text-muted">You cannot and new discussions.</p>
+			  	</div>
 			<% else %>
 				<div class="jumbotron jumbotron-fluid">
 				  <div class="container">
