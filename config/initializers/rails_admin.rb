@@ -35,12 +35,6 @@ RailsAdmin.config do |config|
     visible false
   end
 
-   config.model 'User' do
-    list do
-      exclude_fields :password, :conversation, :personal_message
-    end
-  end
-
   config.actions do
     dashboard                     # mandatory
     index                         # mandatory
