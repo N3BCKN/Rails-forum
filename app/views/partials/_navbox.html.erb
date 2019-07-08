@@ -6,6 +6,14 @@
 			  		<%= user_avatar(current_user,150,150) %>
 			  	</div>
 			  <div class="card-body">
+			  	<% if current_user.admin %>
+				  	<%= link_to rails_admin_path  do %>
+				    <button class="btn btn-primary btn-block mb-3">
+				    	<i class="fa fa-cogs"></i>
+				    	Admin Panel
+					</button>
+				    <% end %>
+			    <% end %>
 			    <%= link_to profile_path(current_user)  do %>
 			    <button class="btn btn-success btn-block mb-3">
 			    	<i class="fa fa-home"></i>
@@ -24,7 +32,7 @@
 			    	Log out
 				</button>
 			    <% end %>
-	</div>
+			</div>
 </div>
 
 <% else %>
