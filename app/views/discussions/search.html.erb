@@ -1,0 +1,15 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-9">
+			<h2 class="text-center">Search results for: <span class="text-primary"><%= params[:q] %></span> </h2>
+			<% if @discussions.present? %>
+				<%= render 'partials/search_discussions', discussions: @discussions  %>
+			<% else %>
+				<h3 class="text-center text-muted mt-5">Discussions not found</h3>
+			<% end %>
+		</div>
+		<div class="col-md-3">
+			<%= render 'partials/navbox' %>
+		</div>
+	</div>
+</div>

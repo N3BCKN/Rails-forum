@@ -36,6 +36,14 @@ class DiscussionsController < ApplicationController
   def destroy
   end
 
+  def search
+    if params[:q].present?
+      @discussions = Discussion.where('LOWER(name) LIKE ?', "%#{params[:q].downcase}%")
+    else
+      @discussions = nil
+    end 
+  end
+
   private
   def discussion_params
   	params.require(:discussion).permit(:name, :content)

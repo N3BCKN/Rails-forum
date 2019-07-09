@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   get "/categories/:id" => "categories#show", :as => "category"
   get "/subject/:id" => "subjects#show", :as => "subject"
   get "/discussion/:id" => "discussions#show", :as => "discussion"
+  get "search", to: "discussions#search"
   get "/faq", to: "pages#faq"
 
-  resources :pages
   resources :users, only: [:edit, :update]
   resources :personal_messages, only: [:create, :new]
   resources :conversations, only: [:index, :show]

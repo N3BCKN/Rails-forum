@@ -1,0 +1,31 @@
+<div class="topics">
+			<table class="table table-hover">
+					<thead>
+					<tr>
+						<th></th>
+						<th>Posts</th>
+						<th>Subject</th>
+						<th>Latest Posts</th>
+					</tr>
+					</thead>
+					<tbody>
+					<% discussions.each do |discussion| %>
+					<tr>
+						<td>
+							<%= link_to discussion_path(discussion), class: "text-dark" do%>
+								<i class="fa fa-file fa-2x"></i> &nbsp;<%= discussion.name %>
+							<% end %> 
+						</td>
+						<td><%= discussion.posts.count %></td>
+						<td><%= link_to discussion.subject.name, subject_path(discussion.subject) %></td>
+						<% if discussion.posts.last.present? %>
+							<td>by: <%= link_to discussion.posts.last.user.user_name, profile_path(discussion.posts.last.user) %> 
+							<br> at: <%= discussion.posts.last.created_at.strftime('%F - %T') %> </td>
+						<% else %>
+							<td> - </td>
+						<% end %>
+					</tr>
+					<% end %>
+					</tbody>
+			</table>
+</div>
