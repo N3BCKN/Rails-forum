@@ -39,6 +39,8 @@ gem 'simple_form'
 gem 'jquery-rails'
 gem 'gemoji'
 gem 'rails_admin'
+gem "aws-sdk-s3", require: false
+gem 'mini_magick', '~> 4.8'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
@@ -46,6 +48,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails', '~> 3.8'
 end
 
 group :development do
