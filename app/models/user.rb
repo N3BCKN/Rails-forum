@@ -15,6 +15,8 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
 
+  validates :user_name, presence: true, length: { minimum: 3, maximum: 15 } 
+
   private
   def assign_role
     self.role ||= :Regular if new_record?
