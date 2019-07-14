@@ -39,6 +39,8 @@ gem 'simple_form'
 gem 'jquery-rails'
 gem 'gemoji'
 gem 'rails_admin'
+gem "aws-sdk-s3", require: false
+gem 'mini_magick', '~> 4.8'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
