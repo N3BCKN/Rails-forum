@@ -21,7 +21,7 @@
       <% if user_signed_in? %>
       <li class="nav-item active">
         <%= link_to profile_path(current_user), :class=>"nav-link text-light" do  %>
-           <%= user_avatar_tiny(current_user) %>&nbsp; <%= current_user.user_name %></span>
+           <%= image_tag current_user.avatar.url(:tiny), :class=>"rounded-circle" %>&nbsp; <%= current_user.user_name %></span>
         <% end %>
       </li>
       <li class="nav-item active">

@@ -13,9 +13,10 @@ class User < ApplicationRecord
   has_many :received_conversations, class_name: 'Conversation', foreign_key: 'received_id'
   has_many :personal_messages, dependent: :destroy
 
-  has_one_attached :avatar
-
   validates :user_name, presence: true, length: { minimum: 3, maximum: 15 } 
+
+  has_attached_file :avatar, styles: { regular: "255x255>", medium: "150x150>", discussion: "120x120>", tiny: "30x30>" }, default_url: ":style/default_avatar.png"
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   private
   def assign_role

@@ -23,7 +23,7 @@
 			<div class="card" style="max-width: 100%;">
 			  <div class="row no-gutters">
 			    <div class="col-sm-2">
-			      <%= user_avatar(@discussion.user,120,120) %>
+			      <%= image_tag @discussion.user.avatar.url(:discussion), :class=>"img-fluid rounded-circle mt-3 ml-2" %>
 			      <p class="ml-4"><%= link_to @discussion.user.user_name, profile_path(@discussion.user), :class=>"text-dark" %>
 			    	<br>
 			    	<small><%= @discussion.user.role %></small><br>
