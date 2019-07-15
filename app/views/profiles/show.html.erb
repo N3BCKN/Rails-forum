@@ -9,13 +9,13 @@
 							</span>
 
 							<div class="space space-4"></div>
-							<% if current_user != @profile %>
-							<%= link_to  new_personal_message_path(receiver_id: @profile) do %>
-								<button class="btn btn-sm btn-block btn-primary" style="background: #03a9f4; width: 96%;">
-									<i class="ace-icon fa fa-envelope-o bigger-110"></i>
-									<span class="bigger-110">Send a message</span>
-								</button>
-							<% end %>
+							<% if current_user != @profile && user_signed_in? %>
+								<%= link_to  new_personal_message_path(receiver_id: @profile) do %>
+									<button class="btn btn-sm btn-block btn-primary" style="background: #03a9f4; width: 96%;">
+										<i class="ace-icon fa fa-envelope-o bigger-110"></i>
+										<span class="bigger-110">Send a message</span>
+									</button>
+								<% end %>
 							<% end %>
 						</div>
 						<div class="col-xs-12 col-sm-9">
