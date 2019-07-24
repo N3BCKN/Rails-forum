@@ -5,5 +5,5 @@ class Subject < ApplicationRecord
   has_many :discussions
   paginates_per 20
 
-  validates :name, presence: true, length: { minimum: 5, maximum: 40 }
+  validates :name, presence: true, length: { minimum: 5, maximum: 30 }
 end
