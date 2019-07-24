@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ConversationsController < ApplicationController
   before_action :set_conversation, except: [:index]
   before_action :check_participating!, except: [:index]
@@ -19,6 +21,6 @@ class ConversationsController < ApplicationController
   end
 
   def check_participating!
-    redirect_to root_path unless @conversation && @conversation.participates?(current_user)
+    redirect_to root_path unless @conversation&.participates?(current_user)
   end
 end

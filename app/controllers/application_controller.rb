@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   # before_action :recent_discussions
@@ -11,6 +13,6 @@ class ApplicationController < ActionController::Base
   end
 
   # def recent_discussions
-  # 	@recent_discussions = Discussion.all.order("created_at DESC").limit(5)
+  #   @recent_discussions = Discussion.all.order("created_at DESC").limit(5)
   # end
 end
