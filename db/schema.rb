@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,10 +12,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2019_07_14_235019) do
 
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -21,53 +24,53 @@ ActiveRecord::Schema.define(version: 2019_07_14_235019) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "conversations", force: :cascade do |t|
-    t.integer "author_id"
-    t.integer "receiver_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["author_id", "receiver_id"], name: "index_conversations_on_author_id_and_receiver_id", unique: true
-    t.index ["author_id"], name: "index_conversations_on_author_id"
-    t.index ["receiver_id"], name: "index_conversations_on_receiver_id"
+  create_table 'conversations', force: :cascade do |t|
+    t.integer 'author_id'
+    t.integer 'receiver_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index %w[author_id receiver_id], name: 'index_conversations_on_author_id_and_receiver_id', unique: true
+    t.index ['author_id'], name: 'index_conversations_on_author_id'
+    t.index ['receiver_id'], name: 'index_conversations_on_receiver_id'
   end
 
-  create_table "discussions", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "subject_id"
-    t.text "content"
-    t.bigint "user_id"
-    t.index ["subject_id"], name: "index_discussions_on_subject_id"
-    t.index ["user_id"], name: "index_discussions_on_user_id"
+  create_table 'discussions', force: :cascade do |t|
+    t.string 'name'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.bigint 'subject_id'
+    t.text 'content'
+    t.bigint 'user_id'
+    t.index ['subject_id'], name: 'index_discussions_on_subject_id'
+    t.index ['user_id'], name: 'index_discussions_on_user_id'
   end
 
-  create_table "personal_messages", force: :cascade do |t|
-    t.text "body"
-    t.bigint "conversation_id"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["conversation_id"], name: "index_personal_messages_on_conversation_id"
-    t.index ["user_id"], name: "index_personal_messages_on_user_id"
+  create_table 'personal_messages', force: :cascade do |t|
+    t.text 'body'
+    t.bigint 'conversation_id'
+    t.bigint 'user_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['conversation_id'], name: 'index_personal_messages_on_conversation_id'
+    t.index ['user_id'], name: 'index_personal_messages_on_user_id'
   end
 
-  create_table "posts", force: :cascade do |t|
-    t.text "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "discussion_id"
-    t.bigint "user_id"
-    t.index ["discussion_id"], name: "index_posts_on_discussion_id"
-    t.index ["user_id"], name: "index_posts_on_user_id"
+  create_table 'posts', force: :cascade do |t|
+    t.text 'content'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.bigint 'discussion_id'
+    t.bigint 'user_id'
+    t.index ['discussion_id'], name: 'index_posts_on_discussion_id'
+    t.index ['user_id'], name: 'index_posts_on_user_id'
   end
 
-  create_table "subjects", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "category_id"
-    t.index ["category_id"], name: "index_subjects_on_category_id"
+  create_table 'subjects', force: :cascade do |t|
+    t.string 'name'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.bigint 'category_id'
+    t.index ['category_id'], name: 'index_subjects_on_category_id'
   end
 
   create_table "users", force: :cascade do |t|

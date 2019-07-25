@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  enum role: ["Admin","Moderator","Regular","Banned"]
+  enum role: %w[Admin Moderator Regular Banned]
   before_create :assign_role
-  
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :posts
@@ -19,6 +21,7 @@ class User < ApplicationRecord
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   private
+
   def assign_role
     self.role ||= :Regular if new_record?
   end

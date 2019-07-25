@@ -1,5 +1,7 @@
-class Category < ApplicationRecord
-	has_many :subjects
+# frozen_string_literal: true
 
-	validates :name, presence: true
+class Category < ApplicationRecord
+  has_many :subjects
+
+  validates :name, presence: true, length: { minimum: 5, maximum: 30 }
 end
